@@ -1,0 +1,76 @@
+<!-- cards/template.html -->
+<!-- copy this file, rename it to your-username.html, and edit everything below -->
+
+<div class="c-card">
+  <div class="c-card__top">
+    <span class="c-card__avatar">JD</span>
+    <span class="c-card__tag"># contributor</span>
+  </div>
+  <h3 class="c-card__name">John Doe</h3>
+  <p class="c-card__bio">
+    Full-stack dev &middot; loves open source &amp; bad puns.
+  </p>
+  <div class="c-card__footer">
+    <span class="c-card__chip">JavaScript</span>
+    <span class="c-card__chip">Git</span>
+  </div>
+</div>
+
+<style>
+  .c-card {
+    padding: 1.5rem;
+    font-family: "Space Grotesk", sans-serif;
+    color: #e4e4e7;
+    height: 100%;
+  }
+  .c-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .c-card__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7c3aed, #06b6d4);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #fff;
+    letter-spacing: 0.03em;
+  }
+  .c-card__tag {
+    font-family: "Space Mono", monospace;
+    font-size: 0.7rem;
+    color: #7c3aed;
+    letter-spacing: 0.08em;
+  }
+  .c-card__name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #f4f4f5;
+  }
+  .c-card__bio {
+    font-size: 0.88rem;
+    color: #71717a;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+  }
+  .c-card__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .c-card__chip {
+    font-family: "Space Mono", monospace;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    border: 1px solid rgba(124, 58, 237, 0.4);
+    color: #a78bfa;
+    background: rgba(124, 58, 237, 0.08);
+  }
+</style>

@@ -1,0 +1,74 @@
+<style>
+  .go-card {
+    padding: 1.5rem;
+    font-family: "Space Mono", monospace;
+    color: #99f6e4;
+    height: 100%;
+    background: #020f0d;
+    border: 1px solid rgba(20, 184, 166, 0.22);
+  }
+  .go-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .go-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #0d9488, #06b6d4);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #fff;
+    border: 1px solid rgba(20, 184, 166, 0.4);
+  }
+  .go-tag {
+    font-size: 0.63rem;
+    color: rgba(153, 246, 228, 0.45);
+    letter-spacing: 0.06em;
+  }
+  .go-name {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.35rem;
+    color: #2dd4bf;
+    letter-spacing: 0.04em;
+  }
+  .go-bio {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.86rem;
+    color: rgba(153, 246, 228, 0.6);
+    margin: 0 0 1.25rem;
+    line-height: 1.5;
+  }
+  .go-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .go-chip {
+    font-size: 0.65rem;
+    padding: 0.22rem 0.6rem;
+    border-radius: 3px;
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    color: #5eead4;
+    background: rgba(20, 184, 166, 0.05);
+  }
+</style>
+
+<div class="go-card">
+  <div class="go-top">
+    <span class="go-avatar">GO</span>
+    <span class="go-tag">[ sec_researcher ]</span>
+  </div>
+  <h3 class="go-name">Grace Okonkwo</h3>
+  <p class="go-bio">Security researcher &middot; finds bugs before the bad guys do.</p>
+  <div class="go-chips">
+    <span class="go-chip">pentest</span>
+    <span class="go-chip">Linux</span>
+    <span class="go-chip">CTF</span>
+  </div>
+</div>

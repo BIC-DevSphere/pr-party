@@ -1,0 +1,84 @@
+<style>
+  .fw-card {
+    padding: 1.5rem;
+    font-family: "Space Grotesk", sans-serif;
+    color: #e0e7ff;
+    height: 100%;
+    background: #0b0f1f;
+    position: relative;
+    overflow: hidden;
+  }
+  .fw-accent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #6366f1, #06b6d4);
+  }
+  .fw-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+  }
+  .fw-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #fff;
+  }
+  .fw-tag {
+    font-family: "Space Mono", monospace;
+    font-size: 0.65rem;
+    color: #818cf8;
+    letter-spacing: 0.06em;
+  }
+  .fw-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.35rem;
+    color: #c7d2fe;
+  }
+  .fw-bio {
+    font-size: 0.86rem;
+    color: #6366f1;
+    margin: 0 0 1.25rem;
+    line-height: 1.5;
+  }
+  .fw-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .fw-chip {
+    font-family: "Space Mono", monospace;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #a5b4fc;
+    background: rgba(99, 102, 241, 0.07);
+  }
+</style>
+
+<div class="fw-card">
+  <div class="fw-accent-bar"></div>
+  <div class="fw-top">
+    <span class="fw-avatar">FW</span>
+    <span class="fw-tag">full-stack</span>
+  </div>
+  <h3 class="fw-name">Felix Wang</h3>
+  <p class="fw-bio">Builds things that scale and fixes things that don't.</p>
+  <div class="fw-chips">
+    <span class="fw-chip">Go</span>
+    <span class="fw-chip">Vue</span>
+    <span class="fw-chip">Redis</span>
+  </div>
+</div>
