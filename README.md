@@ -37,28 +37,6 @@ automatically display all contributions.
 > **Do not modify** any files outside of the `cards/` directory. The loader
 > script and index page should remain unchanged to avoid merge conflicts.
 
-## Testing locally
-
-A simple HTTP server is enough to try the wall out:
-
-```bash
-cd path/to/repo
-python -m http.server 8000
-# then open http://localhost:8000 in your browser
-```
-
-Add a dummy card `cards/test.html` to see it appear.
-
-## Deployment
-
-You can host this repository with [GitHub Pages](https://pages.github.com/).
-On the repository settings pick `main` branch as the source; the page URL will
-be `https://<your-org>.github.io/pr-party/` or similar.
-
-The JS loader uses the GitHub REST API. For public repositories no authentication
-is required. If you choose to make the repo private, you will need to update the
-script to use a personal access token with read access.
-
 ---
 
 Feel free to modify the styles or add enhancements, but keep the workflow
