@@ -1,7 +1,7 @@
 // this script fetches all HTML files in the cards directory and injects them
 // into the page inside a wrapper with class "card".
 
-const repoOwner = "devsphere";
+const repoOwner = "BIC-DevSphere";
 const repoName = "pr-party";
 const dir = "cards";
 
@@ -23,7 +23,6 @@ async function loadCards() {
       "GitHub API failed, falling back to local directory listing",
       err,
     );
-    files = await localFallbackList();
   }
 
   let count = 0;
@@ -44,19 +43,6 @@ async function loadCards() {
     count++;
     if (countEl) countEl.textContent = count;
   }
-}
-
-async function localFallbackList() {
-  const names = [
-    "alice.html",
-    "bob.html",
-    "carol.html",
-    "dave.html",
-    "eva.html",
-    "felix.html",
-    "grace.html",
-  ];
-  return names.map((name) => ({ name, download_url: `cards/test/${name}` }));
 }
 
 // simple CSS fade animation + link-card reset
