@@ -1,7 +1,7 @@
 // this script fetches all HTML files in the cards directory and injects them
 // into the page inside a wrapper with class "card".
 
-const repoOwner = "DevSphere";
+const repoOwner = "BIC-DevSphere";
 const repoName = "pr-party";
 const dir = "cards/contributorCard";
 
