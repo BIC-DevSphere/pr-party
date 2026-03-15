@@ -1,0 +1,13 @@
+{
+  "name": "wall",
+  "version": "1.0.0",
+  "homepage": "https://BIC-DevSphere.github.io/pr-party",
+  "scripts": {
+    "predeploy": "npm run build",
+    "build": "echo \"no build step needed\"",
+    "deploy": "gh-pages -d ."
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  }
+}

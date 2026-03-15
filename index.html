@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>DevSphere • Contributor Wall</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- full-page ambient gradient blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <header class="hero">
+      <nav class="nav">
+        <img id="logo" src="assets/devsphere.png" alt="DevSphere Logo" />
+        <a
+          class="nav-cta"
+          href="https://github.com/devsphere/pr-party"
+          target="_blank"
+          >Fork on GitHub &rarr;</a
+        >
+      </nav>
+
+      <div class="hero-content">
+        <div class="hero-badge">Open Source · March 2026</div>
+        <h1>
+          <span class="line">The PR Party</span>
+          <span class="line gradient-text">Contributor Wall</span>
+        </h1>
+        <p>Every merged PR leaves a mark. This is yours.</p>
+      </div>
+
+      <div class="scroll-hint">scroll &darr;</div>
+    </header>
+
+    <main class="contributors-panel">
+      <div class="section-label">Contributors</div>
+      <div id="cards-container" class="grid"></div>
+
+      <footer>
+        <div class="footer-inner">
+          <span>&#9670; DevSphere &mdash; 2026</span>
+          <span>Built by students, for students.</span>
+        </div>
+      </footer>
+    </main>
+
+    <script src="js/load-cards.js"></script>
+  </body>
+</html>
