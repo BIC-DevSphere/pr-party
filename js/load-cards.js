@@ -54,6 +54,12 @@ async function loadCards() {
     link.className = "card fade-in";
     link.href = singlePageUrl;
     link.innerHTML = `<style>${styles}</style>` + content;
+
+    const profileLink = link.querySelector(".profile-link");
+    if (profileLink) {
+      profileLink.style.pointerEvents = "none";
+    }
+
     link.style.animationDelay = `${count * 80}ms`;
     container.appendChild(link);
     count++;
@@ -67,6 +73,7 @@ style.textContent = `
   @keyframes fade { to { opacity: 1; } }
   a.card { display: block; text-decoration: none; color: inherit; cursor: pointer; }
   a.card:hover { text-decoration: none; }
+  a.card:hover .profile-link { text-decoration: underline; }
 `;
 document.head.appendChild(style);
 
