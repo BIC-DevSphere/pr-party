@@ -3,6 +3,21 @@ const repoName = "pr-party";
 const dir = "cards/contributorCard";
 
 async function listFiles(directory) {
+  // First try local index.json
+  try {
+    const localRes = await fetch(`${directory}/index.json`);
+    if (localRes.ok) {
+      const names = await localRes.json();
+      return names.map(name => ({
+        name,
+        path: `${directory}/${name}`,
+        download_url: `${directory}/${name}`
+      }));
+    }
+  } catch (e) {
+    // Fallback to GitHub API
+  }
+
   const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${directory}`;
   const res = await fetch(url);
   if (res.ok) return res.json();
@@ -23,9 +38,12 @@ async function loadCards() {
   let count = 0;
 
   for (const file of files) {
-    if (!file.name.endsWith(".html")) continue;
+    if (!file.name.endsWith(".html") || file.name === "index.html") continue;
 
-    const singlePageUrl = `cards/singlePage/${file.name}`;
+    // Associated single page in cards/singlePage
+    const singlePageFile = singlePageFiles.find(sf => sf.name === file.name);
+    const singlePageUrl = singlePageFile ? `cards/singlePage/${file.name}` : null;
+    
     const url =
       file.download_url || file.path || `cards/contributorCard/${file.name}`;
     const html = await fetch(url)
@@ -45,7 +63,12 @@ async function loadCards() {
 
     const link = document.createElement("a");
     link.className = "card fade-in";
-    link.href = singlePageUrl;
+    // Link to single page if it exists
+    if (singlePageUrl) {
+      link.href = singlePageUrl;
+    } else {
+      link.style.cursor = "default";
+    }
     link.innerHTML = `<style>${styles}</style>` + content;
 
     const profileLink = link.querySelector(".profile-link");
