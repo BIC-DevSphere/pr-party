@@ -41,11 +41,9 @@ a:hover {
   text-decoration: underline;
 }
 
-
 #logo {
   height: 80px;
 }
-
 
 .blob {
   position: fixed;
@@ -92,7 +90,6 @@ a:hover {
   }
 }
 
-
 .nav {
   position: absolute;
   top: 0;
@@ -128,7 +125,6 @@ a:hover {
   text-decoration: none;
 }
 
-/* ---------- hero ---------- */
 .hero {
   position: sticky;
   top: 0;
@@ -240,7 +236,6 @@ a:hover {
   min-height: 100vh;
 }
 
-
 .section-label {
   font-family: var(--mono);
   font-size: 0.8rem;
@@ -250,7 +245,6 @@ a:hover {
   position: relative;
   z-index: 1;
 }
-
 
 .grid {
   position: relative;
@@ -263,7 +257,6 @@ a:hover {
   margin: 0 auto;
 }
 
-/* outer wrapper injected by loader */
 .card {
   width: 100% !important;
   max-width: 360px;
@@ -305,7 +298,6 @@ a:hover {
   opacity: 1;
 }
 
-
 .fade-in {
   opacity: 0;
   animation: fade 0.5s ease forwards;
@@ -336,7 +328,6 @@ footer {
   }
   .grid {
     padding: 1rem 1rem 4rem;
-
   }
   .section-label {
     padding: 2rem 1rem 0;
