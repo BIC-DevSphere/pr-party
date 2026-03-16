@@ -49,6 +49,3 @@ To keep the wall looking consistent and professional, please follow these guidel
 > script and index page should remain unchanged.
 
 ---
-
-Feel free to modify the styles or add enhancements, but keep the workflow
-simple for workshop participants.
