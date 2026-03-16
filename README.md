@@ -1,4 +1,5 @@
 ## Hosted Github Page Link:
+
 # https://BIC-DevSphere.github.io/pr-party
 
 # DevSphere PR Party Contributor Wall
@@ -16,8 +17,9 @@ automatically display all contributions.
 ├── css/
 │   └── style.css        # global grid + card styling
 ├── js/
-│   └── load-cards.js    # fetches card files from GitHub and injects them
+│   └── load-cards.js    # loads cards listed in cards/index.json
 └── cards/               # contributors only add files here
+   ├── index.json        # manifest of contributor and single-page files
     ├── templateCard.html # template for the card display
     ├── templateSinglePage.html # template for the detail page
     └── contributorCard/ # put your card HTML here
@@ -34,16 +36,14 @@ automatically display all contributions.
    - Or, you can create your own from scratch.
 5. (Optional) Create a detail page:
    - Copy `cards/templateSinglePage.html` to `cards/singlePage/<yourname>.html` and customize.
-6. Commit, push, and open a pull request.
+6. Update `cards/index.json`:
+   - Add your card file name (without spaces, e.g., `JohnDoe.html`) to `contributorCards`.
+   - Add your single page file name to `singlePages` if you created one.
+7. Commit, push, and open a pull request.
 
-## Card Requirements
+## Card and Page Requirements
 
-To keep the wall looking consistent and professional, please follow these guidelines:
-
-- **Dimensions**: Cards should be approximately **360px wide**. The height is flexible but keep it reasonable (around **400px to 600px**).
-- **Colors**: Use **light/neutral background colors**. Avoid dark or extremely vibrant "dark mode" styles as they may clash with the wall's aesthetic.
-- **Self-Contained**: Keep your CSS inside a `<style>` tag within your HTML file.
-- **Resources**: If you use an avatar, place it in the `avatars/` directory and reference it.
+Please see the [requirements.md](requirements.md) file for detailed technical and design guidelines to ensure your card displays correctly on the wall.
 
 > **Do not modify** any files outside of the `cards/` directory. The loader
 > script and index page should remain unchanged.
