@@ -5,8 +5,8 @@ const dir = "cards/contributorCard";
 async function listFiles(directory) {
   const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${directory}`;
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`could not list files in ${directory}`);
-  return res.json();
+  if (res.ok) return res.json();
+  return [];
 }
 
 async function loadCards() {
@@ -18,23 +18,16 @@ async function loadCards() {
   try {
     files = await listFiles(dir);
     singlePageFiles = await listFiles("cards/singlePage");
-  } catch (err) {
-    console.warn("GitHub API failed", err);
-  }
+  } catch (err) {}
 
   let count = 0;
 
   for (const file of files) {
     if (!file.name.endsWith(".html")) continue;
 
-    const singlePageFile = singlePageFiles.find((f) => f.name === file.name);
-    const singlePageUrl = singlePageFile
-      ? singlePageFile.download_url ||
-        singlePageFile.path ||
-        `cards/singlePage/${file.name}`
-      : `cards/singlePage/${file.name}`;
-
-    const url = file.download_url || file.path || `cards/${file.name}`;
+    const singlePageUrl = `cards/singlePage/${file.name}`;
+    const url =
+      file.download_url || file.path || `cards/contributorCard/${file.name}`;
     const html = await fetch(url)
       .then((r) => r.text())
       .catch(() => "");
