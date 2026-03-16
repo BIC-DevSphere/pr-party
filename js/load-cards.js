@@ -2,26 +2,11 @@ const repoOwner = "BIC-DevSphere";
 const repoName = "pr-party";
 const dir = "cards/contributorCard";
 
-const github_token = "";
-
-const localFiles = ["aaditya.html"];
-
 async function listFiles(directory) {
   const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${directory}`;
-  try {
-    const res = await fetch(url, {
-      headers: github_token ? { Authorization: `token ${github_token}` } : {},
-    });
-    if (res.ok) return res.json();
-    throw new Error();
-  } catch (err) {
-    return localFiles
-      .filter((file) => file.endsWith(".html"))
-      .map((file) => ({
-        name: file,
-        path: `${directory}/${file}`,
-      }));
-  }
+  const res = await fetch(url);
+  if (res.ok) return res.json();
+  return [];
 }
 
 async function loadCards() {
