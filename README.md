@@ -1,3 +1,6 @@
+## Hosted Github Page Link:
+# https://BIC-DevSphere.github.io/pr-party
+
 # DevSphere PR Party Contributor Wall
 
 This repository is the foundation for the **DevSphere "PR Party" workshop**.
