@@ -1,60 +1,43 @@
-const repoOwner = "BIC-DevSphere";
-const repoName = "pr-party";
-const contributorDir = "cards/contributorCard";
-const singlePageDir = "cards/singlePage";
+const contributorDir = "cards/contributorCard/";
+const singlePageDir = "cards/singlePage/";
+const manifestPath = "cards/index.json";
 
-const isGitHubHosted = window.location.hostname.includes("github.io");
+async function loadManifest() {
+  const response = await fetch(manifestPath, { cache: "no-store" });
+  if (!response.ok) return { contributorCards: [], singlePages: [] };
 
-async function listFiles(directory) {
-  if (isGitHubHosted) {
-    const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${directory}`;
-    const res = await fetch(url);
-    if (res.ok) return res.json();
-    return [];
-  } else {
-    try {
-      const res = await fetch(directory + "/");
-      if (res.ok) {
-        const text = await res.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, "text/html");
-        const links = Array.from(doc.querySelectorAll("a"));
-        return links
-          .map((a) => a.getAttribute("href"))
-          .filter((href) => href && href.endsWith(".html"))
-          .map((href) => ({
-            name: href.split("/").pop(),
-            path: directory + "/" + href.split("/").pop(),
-            download_url: directory + "/" + href.split("/").pop(),
-          }));
-      }
-    } catch (e) {
-      console.warn("Could not list local files automatically:", e);
-    }
-    return [];
-  }
+  const data = await response.json().catch(() => ({}));
+
+  const contributorCards = Array.isArray(data.contributorCards)
+    ? data.contributorCards
+    : [];
+  const singlePages = Array.isArray(data.singlePages) ? data.singlePages : [];
+
+  return {
+    contributorCards: [...new Set(contributorCards)],
+    singlePages: [...new Set(singlePages)],
+  };
 }
 
 async function loadCards() {
   const container = document.getElementById("cards-container");
   const countEl = document.getElementById("card-count");
-  let list = [];
+  let files = [];
+  let singlePageFiles = [];
 
   try {
-    list = await listFiles(contributorDir);
-  } catch (err) {
-    console.error("Error listing files:", err);
-  }
+    const manifest = await loadManifest();
+    files = manifest.contributorCards;
+    singlePageFiles = manifest.singlePages;
+  } catch (err) {}
+
+  const singlePageSet = new Set(singlePageFiles);
 
   let count = 0;
 
-  for (const file of list) {
-    const fileName = file.name;
-    if (!fileName.endsWith(".html")) continue;
-
-    const singlePageUrl = `${singlePageDir}/${fileName}`;
-    const url =
-      file.download_url || file.path || `${contributorDir}/${fileName}`;
+  for (const fileName of files) {
+    const singlePageUrl = `${singlePageDir}${fileName}`;
+    const url = `${contributorDir}${fileName}`;
     const html = await fetch(url)
       .then((r) => r.text())
       .catch(() => "");
@@ -72,7 +55,10 @@ async function loadCards() {
 
     const link = document.createElement("a");
     link.className = "card fade-in";
-    link.href = singlePageUrl;
+    link.href = singlePageSet.has(fileName) ? singlePageUrl : "#";
+    link.style.width = "360px";
+    link.style.overflow = "hidden";
+    link.style.display = "block";
     link.innerHTML = `<style>${styles}</style>` + content;
 
     const profileLink = link.querySelector(".profile-link");
