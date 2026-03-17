@@ -3,53 +3,140 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>DevSphere • Contributor Wall</title>
+    <title>DevSphere • PR Party – Contributor Wall</title>
+    <meta name="description" content="Every merged PR leaves a mark. Celebrate open-source contributors on the DevSphere PR Party Contributor Wall." />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
 
     <header class="hero">
+      <!-- Background parallax deco layer -->
+      <div class="hero-bg-deco" aria-hidden="true">2026</div>
+
+      <!-- ── Navbar ─────────────────────────────────── -->
       <nav class="nav">
         <img id="logo" src="assets/devsphere.png" alt="DevSphere Logo" />
-        <a
-          class="nav-cta"
-          href="https://github.com/BIC-DevSphere/pr-party"
-          target="_blank"
-          >Fork on GitHub &rarr;</a
-        >
+        <div class="nav-right">
+          <a
+            class="nav-link"
+            href="https://github.com/BIC-DevSphere/pr-party"
+            target="_blank"
+            rel="noopener"
+          >Star on GitHub ★</a>
+          <a
+            class="nav-cta nav-cta--member"
+            href="https://forms.gle/YZiZLFgFwWhmheMi7"
+            target="_blank"
+            rel="noopener"
+          >Become a Member ✦</a>
+          <a
+            class="nav-cta"
+            href="https://github.com/BIC-DevSphere/pr-party"
+            target="_blank"
+            rel="noopener"
+          >Fork →</a>
+        </div>
       </nav>
 
+      <!-- ── Hero content ───────────────────────────── -->
       <div class="hero-content">
-        <div class="hero-badge">Open Source · March 2026</div>
+        <!-- Hero meta row: date chip + live contributor chip -->
+        <div class="hero-meta">
+          <div class="hero-chip hero-chip--date">
+            March 16–17, 2026
+          </div>
+          <div class="hero-chip hero-chip--live">
+            <span class="badge-dot"></span>
+            <span id="hero-badge-count">–</span>&nbsp;contributors
+          </div>
+        </div>
+
+        <!-- Headline -->
         <h1>
           <span class="line">The PR Party</span>
           <span class="line gradient-text">Contributor Wall</span>
         </h1>
-        <p>Every merged PR leaves a mark. This is yours.</p>
+
+        <!-- Sub-headline -->
+        <p class="hero-sub">
+          Every merged PR leaves a mark.<br />This wall is&nbsp;<em>yours</em>.
+        </p>
+
+        <!-- CTA buttons -->
+        <div class="hero-actions">
+          <a
+            id="cta-primary"
+            class="btn btn-primary"
+            href="https://github.com/BIC-DevSphere/pr-party"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+            View on GitHub
+          </a>
+          <a
+            id="cta-scroll"
+            class="btn btn-ghost"
+            href="#contributors"
+            onclick="document.querySelector('.contributors-panel').scrollIntoView({behavior:'smooth'}); return false;"
+          >
+            See Contributors ↓
+          </a>
+        </div>
+
+        <!-- Live stats bar -->
+        <div class="hero-stats" id="hero-stats">
+          <div class="stat">
+            <span id="stat-contributors">–</span>
+            <label>Contributors</label>
+          </div>
+          <div class="stat-sep">·</div>
+          <div class="stat">
+            <span id="stat-stars">–</span>
+            <label>GitHub Stars</label>
+          </div>
+          <div class="stat-sep">·</div>
+          <div class="stat">
+            <span id="stat-forks">–</span>
+            <label>Forks</label>
+          </div>
+        </div>
+
+        <!-- Tech stack pills -->
+        <div class="hero-pills">
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
+          <span class="pill">Vanilla JS</span>
+          <span class="pill">GitHub API</span>
+          <span class="pill">Open Source</span>
+        </div>
       </div>
 
-      <div class="scroll-hint">scroll &darr;</div>
+      <!-- Scroll hint -->
+      <div class="scroll-hint" aria-hidden="true">scroll ↓</div>
     </header>
 
-    <main class="contributors-panel">
+    <!-- ── Contributors section ───────────────────── -->
+    <main class="contributors-panel" id="contributors">
       <div class="section-label">Contributors</div>
       <div id="cards-container" class="grid"></div>
 
       <footer>
         <div class="footer-inner">
-          <span>&#9670; DevSphere &mdash; 2026</span>
+          <span>◆ DevSphere &mdash; 2026</span>
           <span>Built by students, for students.</span>
         </div>
       </footer>
     </main>
 
+    <script src="js/hero-stats.js"></script>
     <script src="js/load-cards.js"></script>
+    <script src="js/parallax.js"></script>
   </body>
 </html>
