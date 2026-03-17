@@ -16,33 +16,37 @@
       }
 
       body {
-        background-color: #efece5;
+        background: #efece5;
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
         margin: 0;
         font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-          Arial, sans-serif;
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }
 
       .card {
-        background: #ffffff;
         width: 360px;
         border-radius: 20px;
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        border: 1px solid rgba(0, 0, 0, 0.04);
+        background: #fff;
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .card-top {
-        background-color: var(--mint-bg);
+        background: var(--mint-bg);
         height: 200px;
-        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
       }
 
       .status-badge {
@@ -56,26 +60,17 @@
         display: flex;
         align-items: center;
         gap: 6px;
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-family: monospace;
         font-size: 11px;
         color: var(--mint-text);
         text-transform: uppercase;
-        letter-spacing: 0.5px;
       }
 
       .status-dot {
         width: 6px;
         height: 6px;
-        background-color: var(--mint-text);
         border-radius: 50%;
-      }
-
-      .initials {
-        font-size: 96px;
-        font-weight: 900;
-        color: var(--mint-text);
-        letter-spacing: -6px;
-        line-height: 1;
+        background: var(--mint-text);
       }
 
       .card-bottom {
@@ -85,33 +80,26 @@
         gap: 12px;
       }
 
-      .header {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-
       h2 {
         margin: 0;
         font-size: 26px;
         font-weight: 800;
         color: var(--text-main);
-        letter-spacing: -0.5px;
       }
 
       .subtitle {
         margin: 0;
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-family: monospace;
         font-size: 12px;
         color: var(--text-muted);
       }
 
       .quote {
-        font-family: "Georgia", serif;
+        font-family: Georgia, serif;
         font-style: italic;
         color: #666;
         font-size: 15px;
-        margin: 8px 0 0 0;
+        margin: 8px 0 0;
         padding-bottom: 20px;
         border-bottom: 1px solid var(--border-light);
       }
@@ -122,18 +110,11 @@
       }
 
       .detail-row {
-        display: grid;
-        grid-template-columns: 80px 1fr;
         padding: 12px 0;
         border-bottom: 1px solid var(--border-light);
-        align-items: center;
-      }
-
-      .detail-label {
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-family: monospace;
         font-size: 11px;
         color: var(--text-muted);
-        letter-spacing: 1px;
         text-transform: uppercase;
       }
 
@@ -141,10 +122,10 @@
         font-size: 14px;
         color: var(--text-main);
         font-weight: 500;
+        margin-top: 4px;
       }
 
       .val-github {
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
         color: var(--mint-text);
         font-weight: 600;
       }
@@ -152,14 +133,15 @@
       .tools {
         display: flex;
         gap: 8px;
+        margin-top: 4px;
       }
 
       .tool-pill {
-        background-color: var(--pill-bg);
+        background: var(--pill-bg);
         border: 1px solid var(--pill-border);
         padding: 4px 8px;
         border-radius: 4px;
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-family: monospace;
         font-size: 11px;
         color: #555;
         font-weight: 500;
@@ -170,26 +152,17 @@
         justify-content: space-between;
         align-items: center;
         padding-top: 8px;
-      }
-
-      .date {
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-family: monospace;
         font-size: 11px;
         color: var(--text-muted);
       }
 
       .profile-link {
-        font-size: 13px;
-        font-weight: 700;
         color: var(--mint-text);
-        text-decoration: none;
+        font-weight: 700;
         display: flex;
         align-items: center;
         gap: 4px;
-      }
-
-      .profile-link span {
-        font-weight: 900;
       }
     </style>
   </head>
@@ -200,7 +173,7 @@
           <span class="status-dot"></span>
           PR merged
         </div>
-        <div class="initials">AT</div>
+        <img src="../../avatars/359966.jpg" alt="pic" />
       </div>
 
       <div class="card-bottom">

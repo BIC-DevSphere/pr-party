@@ -1,12 +1,22 @@
-const repoOwner = "BIC-DevSphere";
-const repoName = "pr-party";
-const dir = "cards/contributorCard";
+const contributorDir = "cards/contributorCard/";
+const singlePageDir = "cards/singlePage/";
+const manifestPath = "cards/index.json";
 
-async function listFiles(directory) {
-  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${directory}`;
-  const res = await fetch(url);
-  if (res.ok) return res.json();
-  return [];
+async function loadManifest() {
+  const response = await fetch(manifestPath, { cache: "no-store" });
+  if (!response.ok) return { contributorCards: [], singlePages: [] };
+
+  const data = await response.json().catch(() => ({}));
+
+  const contributorCards = Array.isArray(data.contributorCards)
+    ? data.contributorCards
+    : [];
+  const singlePages = Array.isArray(data.singlePages) ? data.singlePages : [];
+
+  return {
+    contributorCards: [...new Set(contributorCards)],
+    singlePages: [...new Set(singlePages)],
+  };
 }
 
 async function loadCards() {
@@ -16,18 +26,18 @@ async function loadCards() {
   let singlePageFiles = [];
 
   try {
-    files = await listFiles(dir);
-    singlePageFiles = await listFiles("cards/singlePage");
+    const manifest = await loadManifest();
+    files = manifest.contributorCards;
+    singlePageFiles = manifest.singlePages;
   } catch (err) {}
+
+  const singlePageSet = new Set(singlePageFiles);
 
   let count = 0;
 
-  for (const file of files) {
-    if (!file.name.endsWith(".html")) continue;
-
-    const singlePageUrl = `cards/singlePage/${file.name}`;
-    const url =
-      file.download_url || file.path || `cards/contributorCard/${file.name}`;
+  for (const fileName of files) {
+    const singlePageUrl = `${singlePageDir}${fileName}`;
+    const url = `${contributorDir}${fileName}`;
     const html = await fetch(url)
       .then((r) => r.text())
       .catch(() => "");
@@ -45,7 +55,10 @@ async function loadCards() {
 
     const link = document.createElement("a");
     link.className = "card fade-in";
-    link.href = singlePageUrl;
+    link.href = singlePageSet.has(fileName) ? singlePageUrl : "#";
+    link.style.width = "360px";
+    link.style.overflow = "hidden";
+    link.style.display = "block";
     link.innerHTML = `<style>${styles}</style>` + content;
 
     const profileLink = link.querySelector(".profile-link");

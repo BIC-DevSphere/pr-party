@@ -22,20 +22,17 @@
       }
 
       body {
-        background: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        background: #fff;
         min-height: 100vh;
         padding: 2rem 1rem;
         font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-          Arial, sans-serif;
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }
 
       .wrapper {
         width: 100%;
         max-width: 1200px;
+        margin: 0 auto;
       }
 
       .back-nav {
@@ -56,19 +53,30 @@
       }
 
       .card {
-        background: #ffffff;
         width: 100%;
         border-radius: 24px;
         overflow: hidden;
         box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-        border: 1px solid rgba(0, 0, 0, 0.04);
+        background: #fff;
         display: grid;
         grid-template-columns: 400px 1fr;
       }
 
+      .card img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
       /* HEADER SECTION */
       .card-header {
-        background: linear-gradient(135deg, var(--mint-bg) 0%, #d9ebe3 100%);
+        background:
+          linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(0, 0, 0, 0.4) 100%
+          ),
+          url("../../avatars/359966.jpg") center / cover;
         padding: 60px 40px;
         display: flex;
         flex-direction: column;
@@ -79,8 +87,15 @@
         border-right: 1px solid rgba(0, 0, 0, 0.05);
       }
 
+      .card-header img {
+        width: 300px;
+        height: 400px;
+        border-radius: 20px;
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
+
       .status-badge {
-        position: static;
         margin-bottom: 40px;
         background: rgba(255, 255, 255, 0.95);
         border: 1px solid rgba(0, 0, 0, 0.08);
@@ -89,48 +104,33 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-family: monospace;
         font-size: 11px;
         color: var(--mint-text);
         text-transform: uppercase;
-        letter-spacing: 1px;
         font-weight: 700;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
       }
 
       .status-dot {
         width: 8px;
         height: 8px;
-        background-color: var(--mint-text);
         border-radius: 50%;
-        box-shadow: 0 0 0 4px rgba(55, 117, 97, 0.1);
-      }
-
-      .initials {
-        font-size: 100px;
-        font-weight: 950;
-        color: var(--mint-text);
-        letter-spacing: -8px;
-        line-height: 0.9;
-        margin-bottom: 30px;
-        text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
+        background: var(--mint-text);
       }
 
       .name {
         font-size: 32px;
         font-weight: 850;
-        color: var(--text-main);
-        margin: 0 0 10px 0;
-        letter-spacing: -0.5px;
+        color: #fff;
+        margin: 0 0 10px;
       }
 
       .role {
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-family: monospace;
         font-size: 14px;
-        color: var(--text-muted);
-        letter-spacing: 0.5px;
+        color: #000;
         margin: 0;
-        background: rgba(0,0,0,0.03);
+        background: rgba(255, 255, 255, 1);
         padding: 6px 16px;
         border-radius: 30px;
       }
@@ -159,7 +159,7 @@
 
       .section-title {
         font-size: 12px;
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-family: monospace;
         color: var(--text-muted);
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -170,10 +170,10 @@
       }
 
       .section-title::after {
-        content: "";
         flex: 1;
         height: 1px;
         background: var(--border-light);
+        content: "";
       }
 
       .section-content {
@@ -187,7 +187,6 @@
         padding: 30px;
         border-radius: 16px;
         border: 1px solid var(--border-light);
-        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
       }
 
       .quote {
@@ -197,17 +196,6 @@
         font-size: 20px;
         line-height: 1.6;
         margin: 0;
-        position: relative;
-      }
-
-      .quote::before {
-        content: "“";
-        font-size: 60px;
-        position: absolute;
-        top: -30px;
-        left: -20px;
-        opacity: 0.1;
-        color: var(--mint-text);
       }
 
       .links {
@@ -224,7 +212,9 @@
         background: #fff;
         border-radius: 10px;
         border: 1px solid var(--border-light);
-        transition: transform 0.2s, border-color 0.2s;
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
       }
 
       .link-item:hover {
@@ -233,18 +223,17 @@
       }
 
       .link-label {
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-family: monospace;
         font-size: 11px;
         color: var(--text-muted);
         text-transform: uppercase;
-        letter-spacing: 1px;
         font-weight: 700;
       }
 
       .link-value {
         color: var(--mint-text);
         font-weight: 700;
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-family: monospace;
         font-size: 14px;
         text-decoration: none;
       }
@@ -256,15 +245,14 @@
       }
 
       .tool-pill {
-        background-color: #fff;
+        background: #fff;
         border: 1px solid var(--pill-border);
         padding: 8px 16px;
         border-radius: 30px;
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-family: monospace;
         font-size: 12px;
         color: #444;
         font-weight: 600;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
       }
 
       .metadata {
@@ -273,8 +261,6 @@
         border-top: 1px dashed var(--border-light);
         font-size: 12px;
         color: var(--text-muted);
-        display: flex;
-        justify-content: space-between;
       }
 
       @media (max-width: 900px) {
@@ -295,15 +281,9 @@
       }
 
       @media (max-width: 700px) {
-        .wrapper {
-          max-width: 100%;
-        }
         .card-content {
           padding: 20px;
           gap: 16px;
-        }
-        .initials {
-          font-size: 70px;
         }
         .name {
           font-size: 26px;
@@ -324,7 +304,7 @@
             <span class="status-dot"></span>
             PR merged
           </div>
-          <div class="initials">AT</div>
+          <img src="../../avatars/359966.jpg" alt="pic" />
           <h1 class="name">Aaditya Thapa</h1>
           <p class="role">Computer Science • Year 1</p>
         </div>
