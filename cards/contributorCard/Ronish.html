@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contributor Card</title>
+    <style>
+      :root {
+        --mint-bg: #e3efe9;
+        --mint-text: #377561;
+        --text-main: #1c1c1c;
+        --border-light: #f0f0f0;
+        --text-muted: #a0a0a0;
+        --pill-bg: #ebe7dc;
+        --pill-border: #dfdbcf;
+      }
+
+      body {
+        background: #efece5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+
+      .card {
+        width: 360px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        background: #fff;
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-top {
+        background: var(--mint-bg);
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      .status-badge {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 20px;
+        padding: 6px 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: monospace;
+        font-size: 11px;
+        color: var(--mint-text);
+        text-transform: uppercase;
+      }
+
+      .status-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--mint-text);
+      }
+
+      .card-bottom {
+        padding: 20px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--text-main);
+      }
+
+      .subtitle {
+        margin: 0;
+        font-family: monospace;
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      .quote {
+        font-family: Georgia, serif;
+        font-style: italic;
+        color: #666;
+        font-size: 15px;
+        margin: 8px 0 0;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .detail-row {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-light);
+        font-family: monospace;
+        font-size: 11px;
+        color: var(--text-muted);
+        /* text-transform: uppercase; */
+      }
+
+      .detail-value {
+        font-size: 14px;
+        color: var(--text-main);
+        font-weight: 500;
+        margin-top: 4px;
+      }
+
+      .val-github {
+        color: var(--mint-text);
+        font-weight: 600;
+      }
+
+      .tools {
+        display: flex;
+        gap: 8px;
+        margin-top: 4px;
+      }
+
+      .tool-pill {
+        background: var(--pill-bg);
+        border: 1px solid var(--pill-border);
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 11px;
+        color: #555;
+        font-weight: 500;
+      }
+
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 8px;
+        font-family: monospace;
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      .profile-link {
+        color: var(--mint-text);
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-top">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          PR merged
+        </div>
+        <img src="avatars/messi.jpeg" alt="messi-avatar" />
+      </div>
+
+      <div class="card-bottom">
+        <div class="header">
+          <h2>Ronish karki</h2>
+          <p class="subtitle">Computer Science &bull; Year 2</p>
+        </div>
+
+        <p class="quote">"Don't forget where you came from!"</p>
+
+        <div class="details">
+          <div class="detail-row">
+            <span class="detail-label">GITHUB</span>
+            <span class="detail-value val-github">@Ronishkarki07</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">GOAL</span>
+            <span class="detail-value">404</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">SKILLS AND TOOLS</span>
+            <div class="tools">
+              <span class="tool-pill">JavaScript</span>
+              <span class="tool-pill">Git</span>
+              <span class="tool-pill">Linux</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span class="date">Mar 17, 2026</span>
+          <div class="profile-link">View profile <span>&rarr;</span></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
